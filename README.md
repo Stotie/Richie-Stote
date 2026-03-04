@@ -1,1 +1,947 @@
-# Richie-Stote
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Richie Stote — Strategic Growth Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:         #07090f;
+      --bg2:        #0b0e1a;
+      --card:       rgba(255,255,255,0.038);
+      --card-h:     rgba(255,255,255,0.065);
+      --border:     rgba(255,255,255,0.07);
+      --border-h:   rgba(91,106,240,0.38);
+      --blue:       #5b6af0;
+      --purple:     #9b7ef8;
+      --cyan:       #22d3ee;
+      --gold:       #fbbf24;
+      --green:      #34d399;
+      --text:       #f1f5f9;
+      --text2:      #94a3b8;
+      --text3:      #3f4f6a;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 2.5rem;
+      background: rgba(7,9,15,0.75);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1rem; letter-spacing: -0.02em;
+    }
+    .nav-logo em { font-style: normal; color: var(--blue); }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a {
+      color: var(--text2); text-decoration: none;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.015em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--blue) !important; color: #fff !important;
+      padding: 0.45rem 1.15rem; border-radius: 100px;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 7rem 2.5rem 5rem;
+      position: relative; overflow: hidden;
+    }
+
+    /* Ambient gradient blobs */
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 70% 60% at 68% 38%, rgba(91,106,240,.14) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 75% at 18% 72%, rgba(155,126,248,.09) 0%, transparent 60%),
+        radial-gradient(ellipse 38% 38% at 88% 82%, rgba(34,211,238,.07) 0%, transparent 55%);
+    }
+
+    /* Dot grid */
+    #hero::after {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+    }
+
+    .hero-wrap {
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1.05fr; gap: 5rem; align-items: center;
+      position: relative; z-index: 1;
+    }
+
+    .hero-content { display: flex; flex-direction: column; gap: 1.4rem; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2);
+      border-radius: 100px; padding: 0.38rem 0.9rem;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--green); width: fit-content;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--green);
+      animation: pulse-g 2s ease-in-out infinite;
+    }
+    @keyframes pulse-g {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:.5; transform:scale(.75); }
+    }
+
+    .hero-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3.2rem, 6.5vw, 5.2rem);
+      font-weight: 700; line-height: 1; letter-spacing: -0.035em;
+    }
+    .hero-name .grad {
+      background: linear-gradient(130deg, #5b6af0 0%, #9b7ef8 50%, #22d3ee 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .hero-typing {
+      font-size: 1.05rem; color: var(--text2); min-height: 1.8em; display: flex; align-items: center; gap: 0;
+    }
+    .typing-text { color: var(--text); font-weight: 500; }
+    .cursor {
+      display: inline-block; width: 2px; height: 1.1em;
+      background: var(--blue); margin-left: 1px; vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .hero-bio {
+      font-size: 0.97rem; color: var(--text2); line-height: 1.72; max-width: 490px;
+    }
+
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .pill {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 100px; padding: 0.32rem 0.85rem;
+      font-size: 0.76rem; font-weight: 500; color: var(--text2);
+      transition: all 0.22s; cursor: default;
+    }
+    .pill:hover {
+      border-color: rgba(91,106,240,.4); color: var(--text);
+      background: rgba(91,106,240,.08); transform: translateY(-2px);
+    }
+
+    .hero-cta { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 0.35rem; }
+
+    .btn-primary {
+      background: linear-gradient(130deg, var(--blue), var(--purple));
+      color: #fff; padding: 0.78rem 1.9rem; border-radius: 100px;
+      font-weight: 600; font-size: 0.88rem; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      transition: all 0.25s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(91,106,240,.35); }
+
+    .btn-ghost {
+      background: transparent; color: var(--text2);
+      padding: 0.78rem 1.9rem; border-radius: 100px;
+      font-weight: 500; font-size: 0.88rem; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      border: 1px solid var(--border); transition: all 0.25s;
+    }
+    .btn-ghost:hover { border-color: var(--text2); color: var(--text); }
+
+    /* Photo */
+    .hero-visual { display: flex; justify-content: center; align-items: center; }
+
+    .photo-frame {
+      position: relative; width: 370px; height: 470px;
+    }
+
+    .photo-glow {
+      position: absolute; inset: -30px;
+      background: radial-gradient(ellipse at 55% 40%, rgba(91,106,240,.22) 0%, transparent 65%);
+      filter: blur(32px);
+    }
+
+    .photo-shell {
+      position: absolute; inset: 0; border-radius: 28px;
+      padding: 2px;
+      background: linear-gradient(140deg, rgba(91,106,240,.6), rgba(155,126,248,.4) 50%, rgba(34,211,238,.35));
+    }
+    .photo-inner {
+      width: 100%; height: 100%; border-radius: 26px;
+      overflow: hidden; background: var(--bg2);
+    }
+    .photo-inner img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      filter: contrast(1.04) saturate(0.9);
+    }
+
+    /* Floating cards */
+    .float-card {
+      position: absolute;
+      background: rgba(11,14,26,0.88);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 16px; padding: 0.75rem 1.1rem;
+      backdrop-filter: blur(24px);
+      display: flex; align-items: center; gap: 0.7rem;
+      white-space: nowrap; pointer-events: none;
+    }
+    .fc-icon {
+      width: 34px; height: 34px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .fc-label { font-size: 0.65rem; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+    .fc-val  { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; line-height: 1.1; }
+
+    .fc-a { top: 30px; left: -100px; animation: float-a 4.5s ease-in-out infinite; }
+    .fc-b { bottom: 90px; right: -85px; animation: float-b 5.5s ease-in-out infinite; }
+    .fc-c { bottom: 10px; left: -75px; animation: float-a 6.2s ease-in-out infinite reverse; }
+
+    @keyframes float-a { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+    @keyframes float-b { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
+
+    /* ─── SHARED LAYOUT ─── */
+    section { padding: 6rem 2.5rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .sec-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 0.6rem;
+    }
+    .sec-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 0.9rem;
+    }
+    .sec-sub { color: var(--text2); font-size: 0.97rem; line-height: 1.72; max-width: 580px; }
+
+    /* scroll reveal */
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ─── EXPERTISE ─── */
+    #expertise { background: var(--bg2); }
+
+    .exp-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(272px,1fr));
+      gap: 1.1rem; margin-top: 3rem;
+    }
+
+    .exp-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 1.7rem;
+      cursor: default; transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .exp-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--c-accent, linear-gradient(90deg, var(--blue), transparent));
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .exp-card:hover {
+      border-color: var(--border-h); background: var(--card-h);
+      transform: translateY(-5px); box-shadow: 0 24px 64px rgba(0,0,0,.35);
+    }
+    .exp-card:hover::after { opacity: 1; }
+    .exp-card:hover .card-icon { transform: scale(1.1) rotate(-4deg); }
+
+    .card-icon {
+      width: 46px; height: 46px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; margin-bottom: 1.2rem;
+      transition: transform 0.3s;
+    }
+    .exp-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem; font-weight: 600; letter-spacing: -.01em; margin-bottom: 0.55rem;
+    }
+    .exp-card p { font-size: 0.83rem; color: var(--text2); line-height: 1.66; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.95rem; }
+    .ctag {
+      font-size: 0.68rem; font-weight: 600; padding: 0.18rem 0.6rem; border-radius: 100px;
+      background: rgba(91,106,240,.08); color: #a5b4fc;
+      border: 1px solid rgba(91,106,240,.15);
+    }
+
+    /* ─── TIMELINE ─── */
+    #journey { position: relative; }
+
+    .timeline { position: relative; margin-top: 3rem; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 22px; top: 8px; bottom: 0; width: 1px;
+      background: linear-gradient(to bottom, var(--blue), var(--purple) 60%, transparent);
+    }
+
+    .tl-item {
+      display: flex; gap: 2rem; margin-bottom: 2.2rem; padding-left: 0.25rem;
+    }
+    .tl-dot { flex-shrink: 0; width: 44px; display: flex; justify-content: center; }
+    .tl-dot-inner {
+      width: 13px; height: 13px; border-radius: 50%;
+      border: 2px solid var(--blue); background: var(--bg);
+      margin-top: 7px; position: relative; z-index: 1;
+      transition: all 0.28s;
+    }
+    .tl-item:hover .tl-dot-inner {
+      background: var(--blue); box-shadow: 0 0 0 5px rgba(91,106,240,.15);
+    }
+
+    .tl-body {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.4rem 1.6rem; flex: 1;
+      transition: all 0.28s;
+    }
+    .tl-item:hover .tl-body { border-color: rgba(91,106,240,.22); background: var(--card-h); }
+
+    .tl-head {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 1rem; flex-wrap: wrap; margin-bottom: 0.3rem;
+    }
+    .tl-role {
+      font-family: 'Space Grotesk', sans-serif; font-size: 0.98rem; font-weight: 600;
+    }
+    .tl-period {
+      font-size: 0.72rem; color: var(--text3); font-weight: 500;
+      background: var(--card); border: 1px solid var(--border);
+      padding: 0.18rem 0.6rem; border-radius: 100px; white-space: nowrap;
+    }
+    .tl-company { font-size: 0.83rem; color: var(--blue); font-weight: 500; margin-bottom: 0.55rem; }
+    .tl-desc { font-size: 0.81rem; color: var(--text2); line-height: 1.64; }
+
+    .tl-badge {
+      display: inline-block; font-size: 0.66rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em;
+      padding: .16rem .52rem; border-radius: 100px; margin-bottom: .7rem;
+    }
+    .tb-now    { background: rgba(52,211,153,.1); color: #34d399; border: 1px solid rgba(52,211,153,.2); }
+    .tb-part   { background: rgba(91,106,240,.1); color: #a5b4fc; border: 1px solid rgba(91,106,240,.2); }
+    .tb-found  { background: rgba(251,191,36,.1);  color: #fbbf24; border: 1px solid rgba(251,191,36,.2); }
+    .tb-exec   { background: rgba(34,211,238,.1);  color: #67e8f9; border: 1px solid rgba(34,211,238,.2); }
+    .tb-adv    { background: rgba(155,126,248,.1); color: #c4b5fd; border: 1px solid rgba(155,126,248,.2); }
+
+    /* ─── ACTIVE NOW ─── */
+    #current { background: var(--bg2); }
+
+    .current-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(270px,1fr));
+      gap: 1.1rem; margin-top: 3rem;
+    }
+    .cur-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 1.75rem; transition: all 0.3s;
+    }
+    .cur-card.feat {
+      border-color: rgba(91,106,240,.28);
+      background: linear-gradient(145deg, rgba(91,106,240,.07), rgba(155,126,248,.04));
+    }
+    .cur-card:hover { transform: translateY(-5px); box-shadow: 0 24px 60px rgba(0,0,0,.3); }
+
+    .cur-status {
+      display: inline-flex; align-items: center; gap: 0.38rem;
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .07em; color: var(--green); margin-bottom: 0.9rem;
+    }
+    .status-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--green);
+      animation: pulse-g 2s ease-in-out infinite;
+    }
+    .cur-org {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem; font-weight: 700; margin-bottom: 0.2rem;
+    }
+    .cur-role { font-size: 0.83rem; color: var(--blue); font-weight: 500; margin-bottom: 0.85rem; }
+    .cur-desc { font-size: 0.81rem; color: var(--text2); line-height: 1.65; }
+
+    /* ─── TOOLS TICKER ─── */
+    #tools { padding: 4.5rem 0; overflow: hidden; }
+    #tools .container { padding: 0 2.5rem; }
+    .ticker-wrap { position: relative; margin-top: 2.5rem; }
+    .ticker-wrap::before,
+    .ticker-wrap::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2;
+    }
+    .ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+    .ticker-wrap::after  { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+
+    .ticker-track {
+      display: flex; gap: 0.85rem; width: max-content;
+      animation: ticker 28s linear infinite;
+      padding: 0.5rem 0;
+    }
+    .ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+    @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    .tool-chip {
+      display: flex; align-items: center; gap: 0.48rem;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 100px; padding: 0.52rem 1.05rem;
+      white-space: nowrap; font-size: 0.81rem; font-weight: 500;
+      color: var(--text2); flex-shrink: 0; transition: all 0.22s;
+      cursor: default;
+    }
+    .tool-chip:hover { border-color: var(--blue); color: var(--text); }
+    .chip-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ─── CONTACT ─── */
+    #contact { text-align: center; }
+    .contact-inner { max-width: 600px; margin: 0 auto; }
+    .contact-links {
+      display: flex; gap: 0.9rem; justify-content: center;
+      flex-wrap: wrap; margin-top: 2.5rem;
+    }
+    .contact-link {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.1rem 1.75rem;
+      text-decoration: none; color: var(--text2);
+      display: flex; align-items: center; gap: 0.7rem;
+      font-weight: 500; font-size: 0.88rem; transition: all 0.25s;
+    }
+    .contact-link:hover {
+      border-color: rgba(91,106,240,.35); color: var(--text);
+      transform: translateY(-2px); box-shadow: 0 14px 40px rgba(0,0,0,.28);
+    }
+    .cl-icon {
+      width: 34px; height: 34px; border-radius: 10px;
+      background: rgba(91,106,240,.1); border: 1px solid rgba(91,106,240,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.95rem; flex-shrink: 0;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 1.8rem 2.5rem; text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--text3); font-size: 0.78rem;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 860px) {
+      .hero-wrap { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+      .hero-pills, .hero-cta { justify-content: center; }
+      .hero-bio { max-width: 100%; }
+      .hero-visual { order: -1; }
+      .photo-frame { width: 270px; height: 340px; }
+      .fc-a { left: -10px; }
+      .fc-b { right: -10px; }
+      .fc-c { display: none; }
+      .nav-links li:not(:last-child) { display: none; }
+      .sec-sub { max-width: 100%; }
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 1rem 1.5rem; }
+      section { padding: 4.5rem 1.5rem; }
+      .photo-frame { width: 230px; height: 290px; }
+      .fc-a, .fc-b, .fc-c { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav>
+  <div class="nav-logo">Richie <em>Stote</em></div>
+  <ul class="nav-links">
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#current">Now</a></li>
+    <li><a href="#contact" class="nav-cta">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="hero">
+  <div class="hero-wrap">
+
+    <!-- Left: content -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Available for senior opportunities
+      </div>
+
+      <h1 class="hero-name">
+        Richie<br>
+        <span class="grad">Stote</span>
+      </h1>
+
+      <p class="hero-typing">
+        <span class="typing-text" id="typing-el"></span><span class="cursor"></span>
+      </p>
+
+      <p class="hero-bio">
+        25+ years building high-performance commercial relationships, launching ventures, and driving transformative growth across digital, SaaS, fintech, and emerging tech.
+      </p>
+
+      <div class="hero-pills">
+        <span class="pill">Commercial Leadership</span>
+        <span class="pill">AI Strategy</span>
+        <span class="pill">Digital Transformation</span>
+        <span class="pill">Web3 · Blockchain</span>
+        <span class="pill">SaaS · Fintech</span>
+        <span class="pill">P&amp;L Ownership</span>
+        <span class="pill">GTM Architecture</span>
+        <span class="pill">2× Founder</span>
+      </div>
+
+      <div class="hero-cta">
+        <a href="mailto:richiestote@gmail.com" class="btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          Get in touch
+        </a>
+        <a href="https://linkedin.com/in/richiestote" target="_blank" rel="noopener" class="btn-ghost">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: photo -->
+    <div class="hero-visual">
+      <div class="photo-frame">
+        <div class="photo-glow"></div>
+        <div class="photo-shell">
+          <div class="photo-inner">
+            <img src="New 1.jpg" alt="Richie Stote">
+          </div>
+        </div>
+
+        <!-- Floating stat cards -->
+        <div class="float-card fc-a">
+          <div class="fc-icon" style="background: rgba(91,106,240,.15);">🚀</div>
+          <div>
+            <div class="fc-label">Experience</div>
+            <div class="fc-val" style="color: #a5b4fc;">25+ Years</div>
+          </div>
+        </div>
+
+        <div class="float-card fc-b">
+          <div class="fc-icon" style="background: rgba(52,211,153,.15);">📈</div>
+          <div>
+            <div class="fc-label">Peak Portfolio</div>
+            <div class="fc-val" style="color: var(--green);">£8M ARR</div>
+          </div>
+        </div>
+
+        <div class="float-card fc-c">
+          <div class="fc-icon" style="background: rgba(251,191,36,.15);">⚡</div>
+          <div>
+            <div class="fc-label">Ventures Founded</div>
+            <div class="fc-val" style="color: var(--gold);">2× Exited</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ EXPERTISE ═══════════════ -->
+<section id="expertise">
+  <div class="container">
+    <p class="sec-label reveal">What I bring</p>
+    <h2 class="sec-title reveal">Domains of Expertise</h2>
+    <p class="sec-sub reveal">Spanning commercial strategy, technology leadership, and venture-building — across digital, SaaS, fintech, and Web3 ecosystems.</p>
+
+    <div class="exp-grid">
+
+      <div class="exp-card reveal" style="--c-accent: linear-gradient(90deg, #5b6af0, transparent);">
+        <div class="card-icon" style="background: rgba(91,106,240,.12);">💼</div>
+        <h3>Commercial Leadership</h3>
+        <p>P&amp;L ownership across multi-million pound portfolios. Building and scaling revenue engines with disciplined margin focus.</p>
+        <div class="card-tags">
+          <span class="ctag">P&amp;L Oversight</span>
+          <span class="ctag">Revenue Growth</span>
+          <span class="ctag">Margin Management</span>
+        </div>
+      </div>
+
+      <div class="exp-card reveal" style="--c-accent: linear-gradient(90deg, #9b7ef8, transparent);">
+        <div class="card-icon" style="background: rgba(155,126,248,.12);">🤖</div>
+        <h3>AI &amp; Digital Strategy</h3>
+        <p>Deploying AI agents and digital transformation frameworks that deliver measurable efficiency gains and competitive advantage.</p>
+        <div class="card-tags">
+          <span class="ctag">AI Agents</span>
+          <span class="ctag">Digital Transformation</span>
+          <span class="ctag">Innovation</span>
+        </div>
+      </div>
+
+      <div class="exp-card reveal" style="--c-accent: linear-gradient(90deg, #22d3ee, transparent);">
+        <div class="card-icon" style="background: rgba(34,211,238,.12);">📊</div>
+        <h3>SaaS &amp; Enterprise Sales</h3>
+        <p>Enterprise SaaS and fintech sales leadership — from pipeline origination to multi-year contract renewals and expansions.</p>
+        <div class="card-tags">
+          <span class="ctag">SaaS</span>
+          <span class="ctag">Fintech</span>
+          <span class="ctag">Enterprise Accounts</span>
+        </div>
+      </div>
+
+      <div class="exp-card reveal" style="--c-accent: linear-gradient(90deg, #fbbf24, transparent);">
+        <div class="card-icon" style="background: rgba(251,191,36,.12);">⛓️</div>
+        <h3>Web3 &amp; Blockchain</h3>
+        <p>Strategic advisory across Layer-1 protocols, tokenomics design, and blockchain GTM for telco, IoT, and fintech sectors.</p>
+        <div class="card-tags">
+          <span class="ctag">Layer-1</span>
+          <span class="ctag">Tokenomics</span>
+          <span class="ctag">Telco · IoT</span>
+        </div>
+      </div>
+
+      <div class="exp-card reveal" style="--c-accent: linear-gradient(90deg, #34d399, transparent);">
+        <div class="card-icon" style="background: rgba(52,211,153,.12);">🎯</div>
+        <h3>GTM &amp; Growth Architecture</h3>
+        <p>Designing and executing Go-to-Market strategies that open new markets, accelerate revenue velocity, and create defensible pipelines.</p>
+        <div class="card-tags">
+          <span class="ctag">Market Expansion</span>
+          <span class="ctag">Demand Gen</span>
+          <span class="ctag">Partnerships</span>
+        </div>
+      </div>
+
+      <div class="exp-card reveal" style="--c-accent: linear-gradient(90deg, #f472b6, transparent);">
+        <div class="card-icon" style="background: rgba(244,114,182,.12);">🤝</div>
+        <h3>Client Strategy &amp; Partnerships</h3>
+        <p>C-suite engagement, strategic account management, and long-term partnership architecture that drives retention and advocacy.</p>
+        <div class="card-tags">
+          <span class="ctag">C-Suite Engagement</span>
+          <span class="ctag">NPS</span>
+          <span class="ctag">Retention</span>
+        </div>
+      </div>
+
+      <div class="exp-card reveal" style="--c-accent: linear-gradient(90deg, #fbbf24, transparent);">
+        <div class="card-icon" style="background: rgba(251,191,36,.12);">⚡</div>
+        <h3>Founding &amp; Venture-Building</h3>
+        <p>2× founder with exits. Deep experience in 0→1 product-market fit, fundraising, accelerators, and scale-up operations.</p>
+        <div class="card-tags">
+          <span class="ctag">0→1 Founder</span>
+          <span class="ctag">Fundraising</span>
+          <span class="ctag">Exit Strategy</span>
+        </div>
+      </div>
+
+      <div class="exp-card reveal" style="--c-accent: linear-gradient(90deg, #5b6af0, transparent);">
+        <div class="card-icon" style="background: rgba(91,106,240,.12);">🏛️</div>
+        <h3>Board &amp; Advisory</h3>
+        <p>Active Non-Executive Director and blockchain council member — providing governance, strategic direction, and network access.</p>
+        <div class="card-tags">
+          <span class="ctag">NED</span>
+          <span class="ctag">Governance</span>
+          <span class="ctag">Industry Networks</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CAREER JOURNEY ═══════════════ -->
+<section id="journey">
+  <div class="container">
+    <p class="sec-label reveal">Career arc</p>
+    <h2 class="sec-title reveal">25 Years in the Making</h2>
+    <p class="sec-sub reveal">From architecture school to global client partner — a trajectory through agency, startup, and enterprise leadership.</p>
+
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"><div class="tl-dot-inner" style="border-color:#34d399; background:#34d399;"></div></div>
+        <div class="tl-body">
+          <span class="tl-badge tb-now">Current</span>
+          <div class="tl-head">
+            <div class="tl-role">Lead EMEA Client Partner</div>
+            <span class="tl-period">Apr 2025 – Present</span>
+          </div>
+          <div class="tl-company">Devtech</div>
+          <p class="tl-desc">Leading the EMEA client portfolio, driving strategic partnerships across the digital services landscape with strong YoY growth.</p>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"><div class="tl-dot-inner" style="border-color:#9b7ef8;"></div></div>
+        <div class="tl-body">
+          <span class="tl-badge tb-adv">Consultancy</span>
+          <div class="tl-head">
+            <div class="tl-role">Strategy &amp; Growth Consultant</div>
+            <span class="tl-period">2024 – 2026</span>
+          </div>
+          <div class="tl-company">New Alchemy Innovations</div>
+          <p class="tl-desc">Fractional strategic leadership — AI-led transformation programmes delivering significant client ROI uplift and revenue surge.</p>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div class="tl-body">
+          <span class="tl-badge tb-part">Client Partner</span>
+          <div class="tl-head">
+            <div class="tl-role">Lead Global Client Partner</div>
+            <span class="tl-period">Jun 2021 – Jan 2024</span>
+          </div>
+          <div class="tl-company">Foolproof (Zensar)</div>
+          <p class="tl-desc">£5M ARR portfolio, 26% YoY growth, 53% gross margins. 6× C-suite engagement increase and 70% NPS improvement.</p>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div class="tl-body">
+          <span class="tl-badge tb-part">Client Partner</span>
+          <div class="tl-head">
+            <div class="tl-role">Senior EMEA Client Partner</div>
+            <span class="tl-period">Jan 2019 – Jun 2021</span>
+          </div>
+          <div class="tl-company">CI&amp;T</div>
+          <p class="tl-desc">Peak portfolio of £8M ARR with 33% revenue growth through agile digital transformation engagements across EMEA enterprise clients.</p>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"><div class="tl-dot-inner" style="border-color:#fbbf24;"></div></div>
+        <div class="tl-body">
+          <span class="tl-badge tb-found">Founder × 2</span>
+          <div class="tl-head">
+            <div class="tl-role">Founder / Managing Partner</div>
+            <span class="tl-period">2014 – 2018</span>
+          </div>
+          <div class="tl-company">Onvi + NOCK</div>
+          <p class="tl-desc">Founded two ventures simultaneously. Onvi: £1.2M ARR, $20M+ funding, Wayra accelerator. NOCK: acquired at £750K valuation premium.</p>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"><div class="tl-dot-inner" style="border-color:#22d3ee;"></div></div>
+        <div class="tl-body">
+          <span class="tl-badge tb-exec">C-Suite</span>
+          <div class="tl-head">
+            <div class="tl-role">Chief Commercial Officer</div>
+            <span class="tl-period">2010 – 2014</span>
+          </div>
+          <div class="tl-company">CSM Sport &amp; Entertainment</div>
+          <p class="tl-desc">£2.4M ARR with 18% YoY growth. Built the commercial function across sports, entertainment, and brand partnership verticals.</p>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div class="tl-body">
+          <span class="tl-badge tb-part">Agency</span>
+          <div class="tl-head">
+            <div class="tl-role">Group Account Director</div>
+            <span class="tl-period">2007 – 2010</span>
+          </div>
+          <div class="tl-company">Publicis Groupe</div>
+          <p class="tl-desc">Senior account leadership across HP, Yahoo, and Tesco — managing complex, multi-market relationships within a global comms network.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ACTIVE NOW ═══════════════ -->
+<section id="current">
+  <div class="container">
+    <p class="sec-label reveal">Right now</p>
+    <h2 class="sec-title reveal">Active Roles</h2>
+    <p class="sec-sub reveal">Concurrently operating at the intersection of enterprise client leadership, AI strategy, board governance, and industry advocacy.</p>
+
+    <div class="current-grid">
+
+      <div class="cur-card feat reveal">
+        <div class="cur-status"><div class="status-dot"></div>Full-time · EMEA</div>
+        <div class="cur-org">Devtech</div>
+        <div class="cur-role">Lead EMEA Client Partner</div>
+        <p class="cur-desc">Driving strategic client relationships and revenue growth across EMEA for a leading digital services partner.</p>
+      </div>
+
+      <div class="cur-card reveal">
+        <div class="cur-status"><div class="status-dot"></div>Fractional · Global</div>
+        <div class="cur-org">New Alchemy Innovations</div>
+        <div class="cur-role">Strategy &amp; Growth Consultant</div>
+        <p class="cur-desc">AI-powered growth strategy and transformation advisory for select clients.</p>
+      </div>
+
+      <div class="cur-card reveal">
+        <div class="cur-status"><div class="status-dot"></div>Non-Executive · Board</div>
+        <div class="cur-org">Alvis Car Company</div>
+        <div class="cur-role">Non-Executive Director</div>
+        <p class="cur-desc">Board-level governance and strategic direction for an iconic British automotive heritage brand.</p>
+      </div>
+
+      <div class="cur-card reveal">
+        <div class="cur-status"><div class="status-dot"></div>Advisory · Industry</div>
+        <div class="cur-org">BIMA</div>
+        <div class="cur-role">Blockchain Council Member</div>
+        <p class="cur-desc">Shaping policy and standards at the intersection of blockchain, innovation, and enterprise technology.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TOOLS TICKER ═══════════════ -->
+<section id="tools">
+  <div class="container">
+    <p class="sec-label reveal">Tech fluency</p>
+    <h2 class="sec-title reveal">Tools &amp; Platforms</h2>
+  </div>
+
+  <div class="ticker-wrap" style="margin-top: 2.5rem;">
+    <div class="ticker-track">
+      <div class="tool-chip"><span class="chip-dot" style="background:#f97316"></span>Salesforce</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#ff7a59"></span>HubSpot</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#00a4ef"></span>Microsoft 365</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#5b6af0"></span>AI Agents</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#00b8d9"></span>Miro</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#4a154b"></span>Slack</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#34d399"></span>Agile · Scrum</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#4285f4"></span>Google Workspace</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#9b7ef8"></span>Machine Learning</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#fbbf24"></span>Web3 · Blockchain</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#22d3ee"></span>SaaS Architecture</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#ef4444"></span>Data-Driven Strategy</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#10b981"></span>Mac OS · iOS</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="tool-chip"><span class="chip-dot" style="background:#f97316"></span>Salesforce</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#ff7a59"></span>HubSpot</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#00a4ef"></span>Microsoft 365</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#5b6af0"></span>AI Agents</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#00b8d9"></span>Miro</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#4a154b"></span>Slack</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#34d399"></span>Agile · Scrum</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#4285f4"></span>Google Workspace</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#9b7ef8"></span>Machine Learning</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#fbbf24"></span>Web3 · Blockchain</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#22d3ee"></span>SaaS Architecture</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#ef4444"></span>Data-Driven Strategy</div>
+      <div class="tool-chip"><span class="chip-dot" style="background:#10b981"></span>Mac OS · iOS</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONTACT ═══════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner reveal">
+      <p class="sec-label" style="text-align:center;">Let's connect</p>
+      <h2 class="sec-title" style="text-align:center;">Open to the right conversation</h2>
+      <p class="sec-sub" style="margin: 0.9rem auto 0; text-align:center;">
+        Whether you're building something ambitious, need a strategic growth partner, or want to explore board or advisory opportunities — I'd love to hear from you.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:richiestote@gmail.com" class="contact-link">
+          <div class="cl-icon">✉</div>
+          richiestote@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/richiestote" target="_blank" rel="noopener" class="contact-link">
+          <div class="cl-icon" style="font-weight:700; font-size:.8rem;">in</div>
+          linkedin.com/in/richiestote
+        </a>
+        <a href="tel:+447956329507" class="contact-link">
+          <div class="cl-icon">📞</div>
+          +44 7956 329 507
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Richie Stote &nbsp;·&nbsp; Strategic Growth Leader &nbsp;·&nbsp; London, UK</p>
+</footer>
+
+<script>
+  /* ── Typing effect ── */
+  const titles = [
+    'Strategic Growth Leader',
+    'Client Strategy Architect',
+    'Transformation Executive',
+    'GTM & Revenue Leader',
+    'AI & Digital Strategist',
+  ];
+  let tIdx = 0, cIdx = 0, deleting = false;
+  const el = document.getElementById('typing-el');
+
+  function tick() {
+    const cur = titles[tIdx];
+    if (!deleting) {
+      el.textContent = cur.slice(0, cIdx + 1);
+      cIdx++;
+      if (cIdx === cur.length) { deleting = true; setTimeout(tick, 2400); return; }
+    } else {
+      el.textContent = cur.slice(0, cIdx - 1);
+      cIdx--;
+      if (cIdx === 0) { deleting = false; tIdx = (tIdx + 1) % titles.length; }
+    }
+    setTimeout(tick, deleting ? 42 : 78);
+  }
+  setTimeout(tick, 700);
+
+  /* ── Scroll reveal ── */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      // Stagger cards within same parent
+      const siblings = [...entry.target.parentElement.querySelectorAll('.reveal:not(.in)')];
+      const idx = siblings.indexOf(entry.target);
+      setTimeout(() => entry.target.classList.add('in'), Math.max(0, idx) * 75);
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ── Subtle mouse parallax on hero photo ── */
+  const frame = document.querySelector('.photo-frame');
+  const heroSection = document.getElementById('hero');
+  if (frame && window.innerWidth > 860) {
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const cx = (e.clientX - rect.left) / rect.width - 0.5;
+      const cy = (e.clientY - rect.top)  / rect.height - 0.5;
+      frame.style.transform = `perspective(800px) rotateY(${cx * 5}deg) rotateX(${-cy * 4}deg)`;
+    });
+    heroSection.addEventListener('mouseleave', () => {
+      frame.style.transform = '';
+      frame.style.transition = 'transform 0.6s ease';
+    });
+    heroSection.addEventListener('mousemove', () => {
+      frame.style.transition = 'transform 0.1s ease';
+    });
+  }
+</script>
+</body>
+</html>
+New 1.jpg
