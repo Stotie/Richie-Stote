@@ -484,10 +484,6 @@
 
     <!-- Left: content -->
     <div class="hero-content">
-      <div class="hero-badge">
-        <div class="hero-badge-dot"></div>
-        Available for senior opportunities
-      </div>
 
       <h1 class="hero-name">
         Richie<br>
